@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="demo.css">
+
+</head>
+<body>
+<h3>Tsetlin Machine XOR Problem Learning Demo</h3>
+<!-- <div class = "caption"> 
+		include 
+		exclude
+</div> -->
+<!-- button to start the TM XOR DEMO -->
+<div>
+<p>Click to start demo, refresh page to start again. <button id = "button" type="button" onclick="Start_TM()">Start Demo</button></p>
+</div>
+
+
+ <div class="grid-container">
+ <div class = "header" id ="decor">Tsetlin Machine</div>
+  <div id="epochs">EPOCH: 0</div>
+  <div id="fb_c0_x0">-</div>
+  <div id="fb_c0_x0b">-</div>
+  <div id="fb_c0_x1">-</div>
+  <div id="fb_c0_x1b">-</div>
+  <div id="fb_c1_x0">-</div>
+  <div id="fb_c1_x0b">-</div>
+  <div id="fb_c1_x1">-</div>
+  <div id="fb_c1_x1b">-</div>
+  <div id="fb_c2_x0">-</div>
+  <div id="fb_c2_x0b">-</div>
+  <div id="fb_c2_x1">-</div>
+  <div id="fb_c2_x1b">-</div>
+  <div id="fb_c3_x0">-</div>
+  <div id="fb_c3_x0b">-</div>
+  <div id="fb_c3_x1">-</div>
+  <div id="fb_c3_x1b">-</div>
+
+  <div id ="clausebox1">Clause 0</div>
+  <div  id ="clausebox2">Clause 1</div>
+  <div  id ="clausebox3">Clause 0</div>
+  <div  id ="clausebox4">Clause 1</div>
+
+  <div class="c0_X0_TA_5" id="c0_X0_TA_5"></div>
+  <div class="c0_X0_bar_TA_5" id="c0_X0_bar_TA_5"></div>
+  <div class="c0_X1_TA_5" id="c0_X1_TA_5"></div>
+  <div class="c0_X1_bar_TA_5" id = "c0_X1_bar_TA_5" ></div>
+  <div class="c1_X0_TA_5" id = "c1_X0_TA_5"></div>
+  <div class="c1_X0_bar_TA_5" id = "c1_X0_bar_TA_5"></div>
+  <div class="c1_X1_TA_5" id ="c1_X1_TA_5"></div>
+  <div class="c1_X1_bar_TA_5" id = "c1_X1_bar_TA_5"></div>
+  <div class="c2_X0_TA_5" id = "c2_X0_TA_5"></div>
+  <div class="c2_X0_bar_TA_5" id = "c2_X0_bar_TA_5"></div>
+  <div class="c2_X1_TA_5" id = "c2_X1_TA_5"></div>
+  <div class="c2_X1_bar_TA_5" id = "c2_X1_bar_TA_5"></div>
+  <div class="c3_X0_TA_5" id = "c3_X0_TA_5" ></div>
+  <div class="c3_X0_bar_TA_5" id ="c3_X0_bar_TA_5" ></div>
+  <div class="c3_X1_TA_5" id = "c3_X1_TA_5"></div>
+  <div class="c3_X1_bar_TA_5" id = "c3_X1_bar_TA_5"></div>
+
+  <div class="c0_X0_TA_4" id = "c0_X0_TA_4"></div>
+  <div class="c0_X0_bar_TA_4" id = "c0_X0_bar_TA_4"></div>
+  <div class="c0_X1_TA_4" id = "c0_X1_TA_4"></div>
+  <div class="c0_X1_bar_TA_4" id = "c0_X1_bar_TA_4" ></div>
+  <div class="c1_X0_TA_4" id =  "c1_X0_TA_4"></div>
+  <div class="c1_X0_bar_TA_4" id = "c1_X0_bar_TA_4"></div>
+  <div class="c1_X1_TA_4" id = "c1_X1_TA_4"></div>
+  <div class="c1_X1_bar_TA_4" id = "c1_X1_bar_TA_4" ></div>
+  <div class="c2_X0_TA_4" id = "c2_X0_TA_4" ></div>
+  <div class="c2_X0_bar_TA_4" id = "c2_X0_bar_TA_4"></div>
+  <div class="c2_X1_TA_4" id = "c2_X1_TA_4"></div>
+  <div class="c2_X1_bar_TA_4" id = "c2_X1_bar_TA_4"></div>
+  <div class="c3_X0_TA_4" id = "c3_X0_TA_4" ></div>
+  <div class="c3_X0_bar_TA_4" id = "c3_X0_bar_TA_4"></div>
+  <div class="c3_X1_TA_4" id = "c3_X1_TA_4"></div>
+  <div class="c3_X1_bar_TA_4" id = "c3_X1_bar_TA_4"></div>
+
+  <div class="c0_X0_TA_3" id = "c0_X0_TA_3" ></div>
+  <div class="c0_X0_bar_TA_3" id = "c0_X0_bar_TA_3" ></div>
+  <div class="c0_X1_TA_3" id = "c0_X1_TA_3"></div>
+  <div class="c0_X1_bar_TA_3" id = "c0_X1_bar_TA_3" ></div>
+  <div class="c1_X0_TA_3" id =  "c1_X0_TA_3" ></div>
+  <div class="c1_X0_bar_TA_3" id = "c1_X0_bar_TA_3"></div>
+  <div class="c1_X1_TA_3" id = "c1_X1_TA_3"></div>
+  <div class="c1_X1_bar_TA_3" id = "c1_X1_bar_TA_3"></div>
+  <div class="c2_X0_TA_3" id = "c2_X0_TA_3"></div>
+  <div class="c2_X0_bar_TA_3" id = "c2_X0_bar_TA_3" ></div>
+  <div class="c2_X1_TA_3" id = "c2_X1_TA_3"></div>
+  <div class="c2_X1_bar_TA_3" id = "c2_X1_bar_TA_3" ></div>
+  <div class="c3_X0_TA_3" id = "c3_X0_TA_3" ></div>
+  <div class="c3_X0_bar_TA_3" id = "c3_X0_bar_TA_3" ></div>
+  <div class="c3_X1_TA_3" id = "c3_X1_TA_3"></div>
+  <div class="c3_X1_bar_TA_3" id = "c3_X1_bar_TA_3"></div>
+
+  <div class="c0_X0_TA_2" id = "c0_X0_TA_2"></div>
+  <div class="c0_X0_bar_TA_2" id = "c0_X0_bar_TA_2"></div>
+  <div class="c0_X1_TA_2" id = "c0_X1_TA_2"></div>
+  <div class="c0_X1_bar_TA_2" id = "c0_X1_bar_TA_2" ></div>
+  <div class="c1_X0_TA_2" id = "c1_X0_TA_2"></div>
+  <div class="c1_X0_bar_TA_2" id = "c1_X0_bar_TA_2" ></div>
+  <div class="c1_X1_TA_2" id = "c1_X1_TA_2"></div>
+  <div class="c1_X1_bar_TA_2" id = "c1_X1_bar_TA_2"></div>
+  <div class="c2_X0_TA_2" id = "c2_X0_TA_2"></div>
+  <div class="c2_X0_bar_TA_2" id = "c2_X0_bar_TA_2"></div>
+  <div class="c2_X1_TA_2" id = "c2_X1_TA_2" ></div>
+  <div class="c2_X1_bar_TA_2" id = "c2_X1_bar_TA_2" ></div>
+  <div class="c3_X0_TA_2" id = "c3_X0_TA_2"></div>
+  <div class="c3_X0_bar_TA_2" id = "c3_X0_bar_TA_2" ></div>
+  <div class="c3_X1_TA_2" id ="c3_X1_TA_2" ></div>
+  <div class="c3_X1_bar_TA_2" id = "c3_X1_bar_TA_2" ></div>
+
+  <div class="c0_X0_TA_1" id ="c0_X0_TA_1"  ></div>
+  <div class="c0_X0_bar_TA_1" id = "c0_X0_bar_TA_1"  ></div>
+  <div class="c0_X1_TA_1" id = "c0_X1_TA_1" ></div>
+  <div class="c0_X1_bar_TA_1" id = "c0_X1_bar_TA_1"></div>
+  <div class="c1_X0_TA_1" id = "c1_X0_TA_1"></div>
+  <div class="c1_X0_bar_TA_1" id = "c1_X0_bar_TA_1" ></div>
+  <div class="c1_X1_TA_1" id = "c1_X1_TA_1" ></div>
+  <div class="c1_X1_bar_TA_1" id = "c1_X1_bar_TA_1"></div>
+  <div class="c2_X0_TA_1" id = "c2_X0_TA_1" ></div>
+  <div class="c2_X0_bar_TA_1" id = "c2_X0_bar_TA_1"></div>
+  <div class="c2_X1_TA_1" id = "c2_X1_TA_1"></div>
+  <div class="c2_X1_bar_TA_1" id ="c2_X1_bar_TA_1" ></div>
+  <div class="c3_X0_TA_1" id = "c3_X0_TA_1"></div>
+  <div class="c3_X0_bar_TA_1" id = "c3_X0_bar_TA_1" ></div>
+  <div class="c3_X1_TA_1" id = "c3_X1_TA_1"></div>
+  <div class="c3_X1_bar_TA_1" id = "c3_X1_bar_TA_1"></div>
+
+  <div class="c0_X0_TA_0" id = "c0_X0_TA_0"></div>
+  <div class="c0_X0_bar_TA_0" id = "c0_X0_bar_TA_0" ></div>
+  <div class="c0_X1_TA_0" id = "c0_X1_TA_0" ></div>
+  <div class="c0_X1_bar_TA_0" id = "c0_X1_bar_TA_0" ></div>
+  <div class="c1_X0_TA_0" id = "c1_X0_TA_0" ></div>
+  <div class="c1_X0_bar_TA_0" id = "c1_X0_bar_TA_0" ></div>
+  <div class="c1_X1_TA_0" id = "c1_X1_TA_0"></div>
+  <div class="c1_X1_bar_TA_0" id = "c1_X1_bar_TA_0" ></div>
+  <div class="c2_X0_TA_0" id = "c2_X0_TA_0"></div>
+  <div class="c2_X0_bar_TA_0" id = "c2_X0_bar_TA_0" ></div>
+  <div class="c2_X1_TA_0" id = "c2_X1_TA_0"></div>
+  <div class="c2_X1_bar_TA_0" id = "c2_X1_bar_TA_0"></div>
+  <div class="c3_X0_TA_0" id = "c3_X0_TA_0" ></div>
+  <div class="c3_X0_bar_TA_0" id = "c3_X0_bar_TA_0"></div>
+  <div class="c3_X1_TA_0" id = "c3_X1_TA_0"></div>
+  <div class="c3_X1_bar_TA_0" id = "c3_X1_bar_TA_0"></div>
+
+  <!-- <div class="n0"></div> -->
+  <div id="X0">X<sub>0</sub></div>
+  <div id="X1">X<sub>1</sub></div>
+  <div id="X0_lit">X<sub>0</sub></div>
+  <div id="X0_bar_lit">~X<sub>0</sub></div>
+  <div id="X1_lit">X<sub>1</sub></div>
+  <div id="X1_bar_lit">~X<sub>1</sub></div>
+
+  <div id = "info">Information</div>
+  <div id= "blank_space"></div>
+  <div id= "cm"></div>
+  <div id= "cm1">Same Process</div>
+  <div id= "cm2">Same Process</div>
+  <div id= "cm3">Same Process</div>
+<!--   <div id= clause_out_not1></div>
+  <div id= clause_out_not2></div>
+  <div id= clause_out_not3></div>
+  <div id= clause_out_not4></div>
+  <div id= clause_out_line1></div>
+  <div id= clause_out_line2></div>
+  <div id= clause_out_line1c1></div>
+  <div id= clause_out_line1c2></div> -->
+
+  <div id= c0_x0> X<sub>0 </div>
+  <div id= c0_x0b>~X<sub>0</sub></div>
+  <div id= c0_x1>X<sub>1</div>
+  <div id= c0_x1b>~X<sub>1</sub></div>
+  <div id= c1_x0>X<sub>0</div>
+  <div id= c1_x0b>~X<sub>0</sub></div>
+  <div id= c1_x1>X<sub>1</div>
+  <div id= c1_x1b>~X<sub>1</sub></div>
+  <div id= c2_x0> X<sub>0</div>
+  <div id= c2_x0b> ~X<sub>0</sub></div>
+  <div id= c2_x1>X<sub>1</div>
+  <div id= c2_x1b>~X<sub>1</sub></div>
+  <div id= c3_x0>X<sub>0</div>
+  <div id= c3_x0b>~X<sub>0</sub></div>
+  <div id= c3_x1>X<sub>1</div>
+  <div id= c3_x1b>~X<sub>1</sub></div>
+  <div id= lit> literals</div>
+  <div id= blank2></div>
+  <div id= blank></div>
+  <div id= blank4></div>
+  <!-- <div id= blank3></div> -->
+  <div id= inc> INC</div>
+  <div id= exc> EXC</div>
+   <div id= rpa>R/P/-</div>
+  <div id= average_acc> Avg Acc: 0</div>
+  <div id= acc> Acc: 0</div>
+
+
+   <div id= clause_output1>0</div>
+  <div id= clause_output2>0</div>
+  <div id= clause_output3>0</div>
+  <div id= clause_output4>0</div>
+  <div id= class1> CLASS 0 (y = 0)</div>
+  <div id= class2> CLASS 1 (y = 1)</div>
+
+
+  <div id= exp_class>EXPECTED: </div>
+  <div id= g_class>GUESSED: </div>
+<!--   <div class="clause 0">c0</div>
+  <div class="clause 1">c1</div>
+  <div class="clause 2">c2</div>
+  <div class="clause 3">c3</div> -->
+    <div id= class_sum1>0</div>
+  <div id= class_sum2>0</div>
+      <div id= class_sum1_txt>&#8721; :</div>
+  <div id= class_sum2_txt>&#8721; :</div>
+
+</div> 
+
+
+
+</body>
+<script type="text/javascript" src="TM.js"></script>
+</html>
+
+
